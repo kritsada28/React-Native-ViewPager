@@ -12,12 +12,12 @@ declare module 'rn-viewpager' {
       scrollEnabled?: boolean;
     }
 
-    export class ViewPager extends React.Component<ViewPagerProps> {
+    export class ViewPager extends React.Component<ViewPagerProps,NavigatorUserMediaSuccessCallback> {
       setPage(selectedPage: number): void;
       setPageWithoutAnimation(selectedPage: number): void;
     }
 
-    interface IndicatorViewPagerProps extends ViewProperties {
+    interface IndicatorViewPagerProps extends ViewPagerProps {
       indicator: React.ReactNode;
       pagerStyle?: ViewProperties['style'];
       autoPlayEnable?: boolean;
@@ -25,7 +25,7 @@ declare module 'rn-viewpager' {
       horizontalScroll?: boolean;
 
     }
-    export class IndicatorViewPager extends React.Component<IndicatorViewPagerProps> {
+    export class IndicatorViewPager extends React.Component<IndicatorViewPagerProps,null> {
       setPage(selectedPage: number): void;
       setPageWithoutAnimation(selectedPage: number): void;
     }
@@ -37,7 +37,7 @@ declare module 'rn-viewpager' {
       hideSingle?: boolean;
     }
 
-    export class PagerDotIndicator extends React.Component<PagerDotIndicatorProps> {}
+    export class PagerDotIndicator extends React.Component<PagerDotIndicatorProps,null> {}
 
     interface PageTitleIndicatorProps extends ViewProperties {
       titles: string[];
@@ -48,7 +48,7 @@ declare module 'rn-viewpager' {
       selectedBorderStyle?: ViewProperties['style'];
       renderTitle(index: number, title: string, isSelected: boolean): JSX.Element;
     }
-    export class PagerTitleIndicator extends React.Component<PageTitleIndicatorProps> {}
+    export class PagerTitleIndicator extends React.Component<PageTitleIndicatorProps,null> {}
 
     interface PagerTabIndicatorProps extends ViewProperties {
       tabs: Array<{
@@ -65,5 +65,5 @@ declare module 'rn-viewpager' {
       changePageWithAnimation?: boolean;
     }
 
-    export class PagerTabIndicator extends React.PureComponent<PagerTabIndicatorProps> {}
+    export class PagerTabIndicator extends React.PureComponent<PagerTabIndicatorProps,null> {}
   }
